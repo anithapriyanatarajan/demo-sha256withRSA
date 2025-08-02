@@ -147,7 +147,7 @@ jobs:
         commit_hash=$(git rev-parse origin/main | cut -c1-7)
         
         # Create project identifier in package URL format
-        project_id="pkg:github/${repo_path}@${commit_hash}"
+        project_id="pkg:github/${repo_path,,}@${commit_hash}"
         project_id_encoded=$(echo "$project_id" | jq -rR @uri)
         
         echo "Project ID: $project_id"
